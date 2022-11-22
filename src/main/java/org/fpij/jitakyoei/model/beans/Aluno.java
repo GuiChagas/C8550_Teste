@@ -1,7 +1,7 @@
 package org.fpij.jitakyoei.model.beans;
 
 public class Aluno {
-	Filiado filiado;
+	public Filiado filiado;
 	Entidade entidade;
 	Professor professor;
 	

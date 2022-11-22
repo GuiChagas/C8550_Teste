@@ -47,7 +47,7 @@ public class AppFacadeImpl implements AppFacade {
 <span class="nc" id="L47">			alunoBO.createAluno(aluno);</span>
 <span class="nc" id="L48">		}catch (Exception e) {</span>
 <span class="nc" id="L49">			reportException(e);</span>
-<span class="nc" id="L50">		}</span>
+		}
 <span class="nc" id="L51">	}</span>
 
 	@Override
@@ -56,7 +56,7 @@ public class AppFacadeImpl implements AppFacade {
 <span class="nc" id="L56">			alunoBO.updateAluno(aluno);</span>
 <span class="nc" id="L57">		}catch (Exception e) {</span>
 <span class="nc" id="L58">			reportException(e);</span>
-<span class="nc" id="L59">		}</span>
+		}
 <span class="nc" id="L60">	}</span>
 
 	@Override
@@ -66,7 +66,7 @@ public class AppFacadeImpl implements AppFacade {
 <span class="nc" id="L66">			result = alunoBO.searchAluno(aluno);</span>
 <span class="nc" id="L67">		}catch (Exception e) {</span>
 <span class="nc" id="L68">			reportException(e);</span>
-<span class="nc" id="L69">		}</span>
+		}
 <span class="nc" id="L70">		return result;</span>
 	}
 
@@ -76,7 +76,7 @@ public class AppFacadeImpl implements AppFacade {
 <span class="nc" id="L76">			alunoBO.listAll();</span>
 <span class="nc" id="L77">		}catch (Exception e) {</span>
 <span class="nc" id="L78">			reportException(e);</span>
-<span class="nc" id="L79">		}</span>
+		}
 <span class="nc" id="L80">	}</span>
 
 	@Override
@@ -86,7 +86,7 @@ public class AppFacadeImpl implements AppFacade {
 <span class="nc" id="L86">		}catch (Exception e) {</span>
 <span class="nc" id="L87">			JOptionPane.showMessageDialog(null, e.getMessage());</span>
 <span class="nc" id="L88">			reportException(e);</span>
-<span class="nc" id="L89">		}		</span>
+		}		
 <span class="nc" id="L90">	}</span>
 
 	@Override
@@ -96,7 +96,7 @@ public class AppFacadeImpl implements AppFacade {
 <span class="nc" id="L96">			result = professorBO.listAll();</span>
 <span class="nc" id="L97">		}catch (Exception e) {</span>
 <span class="nc" id="L98">			reportException(e);</span>
-<span class="nc" id="L99">		}</span>
+		}
 <span class="nc" id="L100">		return result;</span>
 	}
 
@@ -107,7 +107,7 @@ public class AppFacadeImpl implements AppFacade {
 <span class="nc" id="L107">			result = professorBO.searchProfessor(professor);</span>
 <span class="nc" id="L108">		}catch (Exception e) {</span>
 <span class="nc" id="L109">			reportException(e);</span>
-<span class="nc" id="L110">		}</span>
+		}
 <span class="nc" id="L111">		return result;</span>
 	}
 
@@ -117,7 +117,7 @@ public class AppFacadeImpl implements AppFacade {
 <span class="nc" id="L117">			professorBO.updateProfessor(professor);</span>
 <span class="nc" id="L118">		}catch (Exception e) {</span>
 <span class="nc" id="L119">			reportException(e);</span>
-<span class="nc" id="L120">		}</span>
+		}
 <span class="nc" id="L121">	}</span>
 
 	@Override
@@ -126,7 +126,7 @@ public class AppFacadeImpl implements AppFacade {
 <span class="nc" id="L126">			entidadeBO.createEntidade(entidade);</span>
 <span class="nc" id="L127">		}catch (Exception e) {</span>
 <span class="nc" id="L128">			reportException(e);</span>
-<span class="nc" id="L129">		}</span>
+		}
 <span class="nc" id="L130">	}</span>
 
 	@Override
@@ -136,7 +136,7 @@ public class AppFacadeImpl implements AppFacade {
 <span class="nc" id="L136">			result = entidadeBO.listAll();</span>
 <span class="nc" id="L137">		}catch (Exception e) {</span>
 <span class="nc" id="L138">			reportException(e);</span>
-<span class="nc" id="L139">		}</span>
+		}
 <span class="nc" id="L140">		return result; </span>
 	}
 
@@ -147,7 +147,7 @@ public class AppFacadeImpl implements AppFacade {
 <span class="nc" id="L147">			result = entidadeBO.searchEntidade(entidade);</span>
 <span class="nc" id="L148">		}catch (Exception e) {</span>
 <span class="nc" id="L149">			reportException(e);</span>
-<span class="nc" id="L150">		}</span>
+		}
 <span class="nc" id="L151">		return result;</span>
 	}
 
@@ -157,7 +157,7 @@ public class AppFacadeImpl implements AppFacade {
 <span class="nc" id="L157">			entidadeBO.updateEntidade(entidade);</span>
 <span class="nc" id="L158">		}catch (Exception e) {</span>
 <span class="nc" id="L159">			reportException(e);</span>
-<span class="nc" id="L160">		}</span>
+		}
 <span class="nc" id="L161">	}</span>
 
 	@Override
@@ -166,7 +166,7 @@ public class AppFacadeImpl implements AppFacade {
 <span class="nc" id="L166">			professorEntidadeBO.createProfessorEntidade(relacionamentos);</span>
 <span class="nc" id="L167">		}catch (Exception e) {</span>
 <span class="nc" id="L168">			reportException(e);</span>
-<span class="nc" id="L169">		}</span>
+		}
 <span class="nc" id="L170">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

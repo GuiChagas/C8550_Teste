@@ -65,7 +65,7 @@ public class AlunoBuscarView implements ViewComponent {
 <span class="nc" id="L65">			}catch (Exception e) {</span>
 <span class="nc" id="L66">				JOptionPane.showMessageDialog(gui,&quot;Nº de Registro inválido! No resgistro só pode haver números.&quot;);</span>
 <span class="nc" id="L67">				return;</span>
-<span class="nc" id="L68">			}</span>
+			}
 		}
 <span class="nc" id="L70">		Aluno aluno = new Aluno();</span>
 <span class="nc" id="L71">		aluno.setFiliado(filiado);</span>
@@ -83,10 +83,10 @@ public class AlunoBuscarView implements ViewComponent {
 <span class="nc" id="L83">				data[i][3] = alunoList.get(i).getEntidade().getNome();</span>
 <span class="nc" id="L84">			}catch (Exception e) {</span>
 <span class="nc" id="L85">				e.printStackTrace();</span>
-<span class="nc" id="L86">			}</span>
+			}
 		}
 <span class="nc" id="L88">		alunoTableModel.setDataVector(data, new String[] { </span>
-				&quot;Resistro&quot;, &quot;Nome&quot;, &quot;Professor&quot;, &quot;Entidade&quot; });
+<span class="nc" id="L89">				&quot;Resistro&quot;, &quot;Nome&quot;, &quot;Professor&quot;, &quot;Entidade&quot; });</span>
 <span class="nc" id="L90">	}</span>
 
 <span class="nc" id="L92">	public class BuscarActionHandler implements ActionListener {</span>

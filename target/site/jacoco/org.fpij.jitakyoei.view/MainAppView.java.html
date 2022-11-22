@@ -92,7 +92,7 @@ public class MainAppView implements AppView {
 			}
 <span class="nc" id="L93">		} catch (Exception e) {</span>
 <span class="nc" id="L94">			e.printStackTrace();</span>
-<span class="nc" id="L95">		}</span>
+		}
 <span class="nc" id="L96">	}</span>
 
 	@Action
@@ -114,8 +114,8 @@ public class MainAppView implements AppView {
 	@Action
 	public void cadastrarProfessorMenuItem() {
 <span class="nc" id="L116">		int i = JOptionPane.showConfirmDialog(frame,</span>
-				&quot;O professor já tem registro como aluno na FPIJ?&quot;,
-				&quot;Confirmação&quot;, JOptionPane.YES_NO_OPTION);
+<span class="nc" id="L117">				&quot;O professor já tem registro como aluno na FPIJ?&quot;,</span>
+<span class="nc" id="L118">				&quot;Confirmação&quot;, JOptionPane.YES_NO_OPTION);</span>
 
 <span class="nc bnc" id="L120" title="All 2 branches missed.">		if (i == JOptionPane.YES_OPTION) {</span>
 <span class="nc" id="L121">			JDialog dialog = new JDialog(frame);</span>
@@ -155,7 +155,7 @@ public class MainAppView implements AppView {
 			}
 <span class="nc" id="L156">		} catch (Exception e) {</span>
 <span class="nc" id="L157">			e.printStackTrace();</span>
-<span class="nc" id="L158">		}</span>
+		}
 <span class="nc" id="L159">	}</span>
 
 	@Action

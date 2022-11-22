@@ -131,8 +131,8 @@ public class FiliadoPanel extends JPanel {
 		//======== this ========
 <span class="nc" id="L132">		setName(&quot;this&quot;);</span>
 <span class="nc" id="L133">		setLayout(new FormLayout(</span>
-			&quot;$lcgap, pref, $lcgap, 109dlu:grow, $lcgap, 65dlu, $lcgap, 29dlu:grow, $lcgap, 46dlu, $lcgap, default&quot;,
-			&quot;5*($lgap, default), $lgap, 107dlu:grow&quot;));
+<span class="nc" id="L134">			&quot;$lcgap, pref, $lcgap, 109dlu:grow, $lcgap, 65dlu, $lcgap, 29dlu:grow, $lcgap, 46dlu, $lcgap, default&quot;,</span>
+<span class="nc" id="L135">			&quot;5*($lgap, default), $lgap, 107dlu:grow&quot;));</span>
 
 		//---- label1 ----
 <span class="nc" id="L138">		label1.setText(&quot;Nome:&quot;);</span>
@@ -230,8 +230,8 @@ public class FiliadoPanel extends JPanel {
 <span class="nc" id="L230">				panel1.setBorder(new TitledBorder(&quot;&quot;));</span>
 <span class="nc" id="L231">				panel1.setName(&quot;panel1&quot;);</span>
 <span class="nc" id="L232">				panel1.setLayout(new FormLayout(</span>
-					&quot;39dlu, $lcgap, 65dlu:grow, $lcgap, 53dlu, $lcgap, 52dlu:grow, $lcgap, 52dlu&quot;,
-					&quot;default, $lgap, fill:48dlu:grow&quot;));
+<span class="nc" id="L233">					&quot;39dlu, $lcgap, 65dlu:grow, $lcgap, 53dlu, $lcgap, 52dlu:grow, $lcgap, 52dlu&quot;,</span>
+<span class="nc" id="L234">					&quot;default, $lgap, fill:48dlu:grow&quot;));</span>
 
 				//---- label7 ----
 <span class="nc" id="L237">				label7.setText(&quot;Cor:&quot;);</span>
@@ -262,17 +262,17 @@ public class FiliadoPanel extends JPanel {
 
 					//---- faixasTable ----
 <span class="nc" id="L264">					faixasTable.setModel(new DefaultTableModel(</span>
-						new Object[][] {
+<span class="nc" id="L265">						new Object[][] {</span>
 						},
-						new String[] {
-							&quot;Faixa&quot;, &quot;Data de Entrega&quot;
+<span class="nc" id="L267">						new String[] {</span>
+<span class="nc" id="L268">							&quot;Faixa&quot;, &quot;Data de Entrega&quot;</span>
 						}
-<span class="nc" id="L270">					) {</span>
+					) {
 <span class="nc" id="L271">						Class[] columnTypes = new Class[] {</span>
-							Object.class, Object.class
+<span class="nc" id="L272">							Object.class, Object.class</span>
 						};
 <span class="nc" id="L274">						boolean[] columnEditable = new boolean[] {</span>
-							false, true
+<span class="nc" id="L275">							false, true</span>
 						};
 						@Override
 						public Class&lt;?&gt; getColumnClass(int columnIndex) {
