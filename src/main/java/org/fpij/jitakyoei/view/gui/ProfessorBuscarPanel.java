@@ -13,6 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import org.fpij.jitakyoei.view.ProfessorBuscarView;
+
 
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
@@ -23,10 +25,24 @@ import com.jgoodies.forms.layout.FormLayout;
 
 public class ProfessorBuscarPanel extends JPanel {
 
+	private ProfessorBuscarView view;
+
 	private static final long serialVersionUID = 1L;
 
 	public ProfessorBuscarPanel() {
 		initComponents();
+	}
+
+	public void registerView(ProfessorBuscarView professorBuscarView){
+		this.view = professorBuscarView;
+	}
+
+	public JTable getProfessorTable() {
+		return professores;
+	}
+
+	public ProfessorBuscarView getView(){
+		return this.view;
 	}
 
 	public BuscaCamposPanel getBuscaCamposPanel() {
@@ -36,7 +52,7 @@ public class ProfessorBuscarPanel extends JPanel {
 	public JTable getProfessores() {
 		return professores;
 	}
-	
+
 	public JButton getBuscar() {
 		return buscar;
 	}
@@ -54,8 +70,8 @@ public class ProfessorBuscarPanel extends JPanel {
 		//======== this ========
 		setName("this");
 		setLayout(new FormLayout(
-			"default:grow",
-			"3*(default, $lgap), default"));
+				"default:grow",
+				"3*(default, $lgap), default"));
 
 		//---- label1 ----
 		label1.setText("Buscar Professor");
@@ -85,13 +101,13 @@ public class ProfessorBuscarPanel extends JPanel {
 
 			//---- professores ----
 			professores.setModel(new DefaultTableModel(
-				new Object[][] {
-					{null, null},
-					{null, null},
-				},
-				new String[] {
-					"Registro", "Nome"
-				}
+					new Object[][] {
+							{null, null},
+							{null, null},
+					},
+					new String[] {
+							"Registro", "Nome"
+					}
 			));
 			professores.setName("professores");
 			scrollPane1.setViewportView(professores);

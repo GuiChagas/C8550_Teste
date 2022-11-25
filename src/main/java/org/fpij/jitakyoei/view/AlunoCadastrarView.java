@@ -10,6 +10,8 @@ import org.fpij.jitakyoei.facade.AppFacade;
 import org.fpij.jitakyoei.model.beans.Aluno;
 import org.fpij.jitakyoei.view.forms.AlunoForm;
 import org.fpij.jitakyoei.view.gui.AlunoCadastrarPanel;
+import org.fpij.jitakyoei.model.validator.AlunoValidator;
+
 
 public class AlunoCadastrarView implements ViewComponent {
 
@@ -47,10 +49,17 @@ public class AlunoCadastrarView implements ViewComponent {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			Aluno aluno = alunoForm.getAluno();
+
+			AlunoValidator studentValidator = new AlunoValidator();
 			try {
-				facade.createAluno(aluno);
-				JOptionPane.showMessageDialog(gui, "Aluno cadastrado com sucesso!");
-				parent.removeTabPanel(gui);
+				if(studentValidator.validate(aluno)){
+					facade.createAluno(aluno);
+					JOptionPane.showMessageDialog(gui, "Aluno cadastrado com sucesso!");
+					parent.removeTabPanel(gui);
+				}else{
+					JOptionPane.showMessageDialog(gui, "Erro - Preencha todos os dados de cadastro do aluno");
+				}
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

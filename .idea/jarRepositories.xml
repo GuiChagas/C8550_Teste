@@ -17,6 +17,11 @@
       <option name="url" value="file://D:\Gui\Area de trabalho\FACULDADE\Horas Complementares\teste/lib" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="libs" />
+      <option name="name" value="libs" />
+      <option name="url" value="file://D:\Gui\Area de trabalho\FACULDADE\Horas Complementares\C8550-Projeto/lib" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="jboss.community" />
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />

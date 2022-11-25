@@ -12,8 +12,11 @@ import org.fpij.jitakyoei.facade.AppFacade;
 import org.fpij.jitakyoei.model.beans.Entidade;
 import org.fpij.jitakyoei.model.beans.Professor;
 import org.fpij.jitakyoei.model.beans.ProfessorEntidade;
+import org.fpij.jitakyoei.model.validator.EntidadeValidator;
 import org.fpij.jitakyoei.view.forms.ProfessorForm;
 import org.fpij.jitakyoei.view.gui.ProfessorCadastrarPanel;
+import org.fpij.jitakyoei.model.validator.ProfessorValidator;
+
 
 public class ProfessorCadastrarView implements ViewComponent {
 	ProfessorCadastrarPanel gui;
@@ -21,48 +24,58 @@ public class ProfessorCadastrarView implements ViewComponent {
 	private AppFacade facade;
 	private MainAppView parent;
 	
-<span class="nc" id="L24">	public ProfessorCadastrarView(MainAppView parent){</span>
-<span class="nc" id="L25">		this.parent = parent;</span>
-<span class="nc" id="L26">		gui = new ProfessorCadastrarPanel();</span>
-<span class="nc" id="L27">		gui.getCancelar().addActionListener(new CancelarActionHandler());</span>
-<span class="nc" id="L28">		gui.getCadastrar().addActionListener(new CadastrarActionHandler());</span>
-<span class="nc" id="L29">		professorForm = new ProfessorForm(gui.getProfessorPanel());</span>
-<span class="nc" id="L30">	}</span>
+<span class="nc" id="L27">	public ProfessorCadastrarView(MainAppView parent){</span>
+<span class="nc" id="L28">		this.parent = parent;</span>
+<span class="nc" id="L29">		gui = new ProfessorCadastrarPanel();</span>
+<span class="nc" id="L30">		gui.getCancelar().addActionListener(new CancelarActionHandler());</span>
+<span class="nc" id="L31">		gui.getCadastrar().addActionListener(new CadastrarActionHandler());</span>
+<span class="nc" id="L32">		professorForm = new ProfessorForm(gui.getProfessorPanel());</span>
+<span class="nc" id="L33">	}</span>
 	
 	@Override
 	public JPanel getGui() {
-<span class="nc" id="L34">		return gui;</span>
+<span class="nc" id="L37">		return gui;</span>
 	}
 
 	@Override
 	public void registerFacade(AppFacade fac) {
-<span class="nc" id="L39">		this.facade = fac;</span>
-<span class="nc" id="L40">	}</span>
+<span class="nc" id="L42">		this.facade = fac;</span>
+<span class="nc" id="L43">	}</span>
 	
 	/**
 	 * Classe interna responsável por responder aos cliques no botão &quot;Cadastrar&quot;.
 	 * 
 	 * @author Aécio
 	 */
-<span class="nc" id="L47">	public class CadastrarActionHandler implements ActionListener {</span>
+<span class="nc" id="L50">	public class CadastrarActionHandler implements ActionListener {</span>
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+<span class="nc" id="L53">			ProfessorValidator teacherValidator = new ProfessorValidator();</span>
+
+
 			try{
-<span class="nc" id="L51">				Professor professor = professorForm.getProfessor();</span>
-<span class="nc" id="L52">				List&lt;Entidade&gt; entidades = professorForm.getEntidadesList();</span>
-				
-<span class="nc" id="L54">				List&lt;ProfessorEntidade&gt; relacionamentos = new ArrayList&lt;ProfessorEntidade&gt;();</span>
-<span class="nc bnc" id="L55" title="All 2 branches missed.">				for (Entidade entidade : entidades) {</span>
-<span class="nc" id="L56">					relacionamentos.add(new ProfessorEntidade(professor, entidade));</span>
+<span class="nc" id="L57">				Professor professor = professorForm.getProfessor();</span>
+<span class="nc" id="L58">				List&lt;Entidade&gt; entidades = professorForm.getEntidadesList();</span>
+
+<span class="nc bnc" id="L60" title="All 2 branches missed.">				if(teacherValidator.validate(professor)){</span>
+<span class="nc" id="L61">					List&lt;ProfessorEntidade&gt; relacionamentos = new ArrayList&lt;ProfessorEntidade&gt;();</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">					for (Entidade entidade : entidades) {</span>
+<span class="nc" id="L63">						relacionamentos.add(new ProfessorEntidade(professor, entidade));</span>
+<span class="nc" id="L64">					}</span>
+<span class="nc" id="L65">					facade.createProfessor(professor);</span>
+<span class="nc" id="L66">					facade.createProfessorEntidade(relacionamentos);</span>
+<span class="nc" id="L67">					JOptionPane.showMessageDialog(gui, &quot;Professor cadastrado com sucesso!&quot;);</span>
+<span class="nc" id="L68">					parent.removeTabPanel(gui);</span>
+<span class="nc" id="L69">				}else{</span>
+<span class="nc" id="L70">					JOptionPane.showMessageDialog(gui, &quot;Erro - Preencha todos os dados de cadastro do professor&quot;);</span>
+
 				}
-<span class="nc" id="L58">				facade.createProfessor(professor);</span>
-<span class="nc" id="L59">				facade.createProfessorEntidade(relacionamentos);</span>
-<span class="nc" id="L60">				JOptionPane.showMessageDialog(gui, &quot;Professor cadastrado com sucesso!&quot;);</span>
-<span class="nc" id="L61">				parent.removeTabPanel(gui);			</span>
-<span class="nc" id="L62">			}catch (Exception e) {</span>
-<span class="nc" id="L63">				e.printStackTrace();</span>
-			}
-<span class="nc" id="L65">		}</span>
+
+
+<span class="nc" id="L75">			}catch (Exception e) {</span>
+<span class="nc" id="L76">				e.printStackTrace();</span>
+<span class="nc" id="L77">			}</span>
+<span class="nc" id="L78">		}</span>
 	}
 	
 	/**
@@ -70,11 +83,11 @@ public class ProfessorCadastrarView implements ViewComponent {
 	 * 
 	 * @author Aécio
 	 */
-<span class="nc" id="L73">	public class CancelarActionHandler implements ActionListener {</span>
+<span class="nc" id="L86">	public class CancelarActionHandler implements ActionListener {</span>
 		@Override
 		public void actionPerformed(ActionEvent e) {
-<span class="nc" id="L76">			parent.removeTabPanel(gui);</span>
-<span class="nc" id="L77">		}</span>
+<span class="nc" id="L89">			parent.removeTabPanel(gui);</span>
+<span class="nc" id="L90">		}</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

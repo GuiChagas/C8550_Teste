@@ -116,9 +116,9 @@ public class MainAppView implements AppView {
 		int i = JOptionPane.showConfirmDialog(frame,
 				"O professor já tem registro como aluno na FPIJ?",
 				"Confirmação", JOptionPane.YES_NO_OPTION);
-
+		JDialog dialog = new JDialog(frame);
 		if (i == JOptionPane.YES_OPTION) {
-			JDialog dialog = new JDialog(frame);
+
 			ProfessorBuscarView view = new ProfessorBuscarView();
 			view.registerFacade(facade);
 			dialog.getContentPane().add(view.getGui());
@@ -126,7 +126,7 @@ public class MainAppView implements AppView {
 			dialog.setSize(600, 400);
 			dialog.setLocationRelativeTo(frame);
 			dialog.setVisible(true);
-		} else {
+		}else if(i == JOptionPane.NO_OPTION){
 			displayTabPanel(new ProfessorCadastrarView(this), "Cadastrar Professor");
 		}
 	}
@@ -209,7 +209,7 @@ public class MainAppView implements AppView {
 
 	@Action
 	public void buscarEntidadeMenuItem() {
-		displayTabPanel(new EntidadeBuscarView(), "Busca de Entidade");
+		displayTabPanel(new EntidadeBuscarView(), "Buscar Entidade");
 	}
 
 	@Action

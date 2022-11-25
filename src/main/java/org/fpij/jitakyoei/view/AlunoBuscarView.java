@@ -77,16 +77,20 @@ public class AlunoBuscarView implements ViewComponent {
 		Object[][] data = new Object[alunoList.size()][4];
 		for (int i = 0; i < alunoList.size(); i++) {
 			try{
+
+				System.out.println("ERRO BUSCAR VIEW -----------");
+				System.out.println(alunoList.get(i).getProfessor().getFiliado().getNome());
+
 				data[i][0] = alunoList.get(i).getFiliado().getId();
 				data[i][1] = alunoList.get(i).getFiliado().getNome();
-				data[i][2] = alunoList.get(i).getProfessor().getFiliado().getNome();
+				data[i][2] =  alunoList.get(i).getProfessor().getFiliado().getNome();
 				data[i][3] = alunoList.get(i).getEntidade().getNome();
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 		alunoTableModel.setDataVector(data, new String[] { 
-				"Resistro", "Nome", "Professor", "Entidade" });
+				"Registro", "Nome", "Professor", "Entidade" });
 	}
 
 	public class BuscarActionHandler implements ActionListener {

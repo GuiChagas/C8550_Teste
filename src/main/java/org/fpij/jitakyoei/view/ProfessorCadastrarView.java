@@ -12,8 +12,11 @@ import org.fpij.jitakyoei.facade.AppFacade;
 import org.fpij.jitakyoei.model.beans.Entidade;
 import org.fpij.jitakyoei.model.beans.Professor;
 import org.fpij.jitakyoei.model.beans.ProfessorEntidade;
+import org.fpij.jitakyoei.model.validator.EntidadeValidator;
 import org.fpij.jitakyoei.view.forms.ProfessorForm;
 import org.fpij.jitakyoei.view.gui.ProfessorCadastrarPanel;
+import org.fpij.jitakyoei.model.validator.ProfessorValidator;
+
 
 public class ProfessorCadastrarView implements ViewComponent {
 	ProfessorCadastrarPanel gui;
@@ -47,18 +50,28 @@ public class ProfessorCadastrarView implements ViewComponent {
 	public class CadastrarActionHandler implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+			ProfessorValidator teacherValidator = new ProfessorValidator();
+
+
 			try{
 				Professor professor = professorForm.getProfessor();
 				List<Entidade> entidades = professorForm.getEntidadesList();
-				
-				List<ProfessorEntidade> relacionamentos = new ArrayList<ProfessorEntidade>();
-				for (Entidade entidade : entidades) {
-					relacionamentos.add(new ProfessorEntidade(professor, entidade));
+
+				if(teacherValidator.validate(professor)){
+					List<ProfessorEntidade> relacionamentos = new ArrayList<ProfessorEntidade>();
+					for (Entidade entidade : entidades) {
+						relacionamentos.add(new ProfessorEntidade(professor, entidade));
+					}
+					facade.createProfessor(professor);
+					facade.createProfessorEntidade(relacionamentos);
+					JOptionPane.showMessageDialog(gui, "Professor cadastrado com sucesso!");
+					parent.removeTabPanel(gui);
+				}else{
+					JOptionPane.showMessageDialog(gui, "Erro - Preencha todos os dados de cadastro do professor");
+
 				}
-				facade.createProfessor(professor);
-				facade.createProfessorEntidade(relacionamentos);
-				JOptionPane.showMessageDialog(gui, "Professor cadastrado com sucesso!");
-				parent.removeTabPanel(gui);			
+
+
 			}catch (Exception e) {
 				e.printStackTrace();
 			}

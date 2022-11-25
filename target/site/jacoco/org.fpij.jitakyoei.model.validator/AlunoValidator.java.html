@@ -2,9 +2,32 @@
 
 import org.fpij.jitakyoei.model.beans.Aluno;
 
-<span class="nc" id="L5">public class AlunoValidator implements Validator&lt;Aluno&gt;{</span>
+<span class="fc" id="L5">public class AlunoValidator implements Validator&lt;Aluno&gt;{</span>
+
+<span class="fc" id="L7">	private RgValidator rgValidator = new RgValidator();</span>
+<span class="fc" id="L8">	private EnderecoValidator addressValidator = new EnderecoValidator();</span>
 	public boolean validate(Aluno obj) {
-<span class="nc" id="L7">		return true;</span>
+<span class="fc" id="L10">		Object entity = obj.getEntidade();</span>
+<span class="fc" id="L11">		Object teacher = obj.getProfessor();</span>
+
+
+<span class="pc bpc" id="L14" title="1 of 2 branches missed.">		if(obj.getFiliado().getCpf().isEmpty() ||</span>
+<span class="pc bpc" id="L15" title="1 of 2 branches missed.">			obj.getFiliado().getDataNascimento() == null ||</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">			obj.getFiliado().getEmail().isEmpty() ||</span>
+<span class="pc bpc" id="L17" title="1 of 2 branches missed.">			obj.getFiliado().getNome().isEmpty() ||</span>
+<span class="pc bpc" id="L18" title="1 of 2 branches missed.">			obj.getFiliado().getRegistroCbj().isEmpty() ||</span>
+<span class="pc bpc" id="L19" title="4 of 8 branches missed.">			(obj.getFiliado().getTelefone1().isEmpty() || obj.getFiliado().getTelefone2().isEmpty()) ||</span>
+			entity == null ||
+			teacher == null ||
+<span class="fc bfc" id="L22" title="All 2 branches covered.">			obj.getFiliado().getFaixas().isEmpty() ||</span>
+<span class="pc bpc" id="L23" title="1 of 2 branches missed.">			rgValidator.validate(obj.getFiliado().getRg()) ||</span>
+<span class="pc bpc" id="L24" title="1 of 2 branches missed.">			addressValidator.validate(obj.getFiliado().getEndereco())</span>
+		)
+		{
+<span class="fc" id="L27">			return false;</span>
+		}
+
+<span class="fc" id="L30">		return true;</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

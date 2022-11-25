@@ -30,7 +30,7 @@ public class ProfessorForm {
 <span class="nc" id="L30">		this.professor = professor;</span>
 <span class="nc" id="L31">		this.professorPanel = professorPanel;</span>
 <span class="nc" id="L32">		this.professorPanel.getAdicionarEntidade().addActionListener(</span>
-<span class="nc" id="L33">				new AdicionarEntidadeActionHandler());</span>
+				new AdicionarEntidadeActionHandler());
 <span class="nc" id="L34">		this.filiadoForm = new FiliadoForm(professorPanel.getFiliadoPanel());</span>
 <span class="nc" id="L35">		populaEntidadeCombo();</span>
 <span class="nc" id="L36">	}</span>
@@ -59,7 +59,7 @@ public class ProfessorForm {
 <span class="nc" id="L59">		List&lt;Entidade&gt; resultEntidades = new DAOImpl&lt;Entidade&gt;(Entidade.class).list();</span>
 <span class="nc bnc" id="L60" title="All 2 branches missed.">		for (Entidade e : resultEntidades) {</span>
 <span class="nc" id="L61">			entidadeCombo.addItem(e);</span>
-		}
+<span class="nc" id="L62">		}</span>
 <span class="nc" id="L63">		entidadeCombo.setSelectedItem(null);</span>
 <span class="nc" id="L64">	}</span>
 

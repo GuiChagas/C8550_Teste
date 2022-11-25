@@ -55,7 +55,7 @@ public class FiliadoForm {
 <span class="nc" id="L55">		this.enderecoForm = new EnderecoForm(filiadoPanel.getEnderecoPanel());</span>
 <span class="nc" id="L56">		this.dataFormater = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
 <span class="nc" id="L57">		this.filiadoPanel.getAdicionarFaixa().addActionListener(</span>
-<span class="nc" id="L58">				new AdicionarFaixaActionHandler());</span>
+				new AdicionarFaixaActionHandler());
 <span class="nc" id="L59">		this.setCorFaixaItens(CorFaixa.getCoresFaixa());</span>
 <span class="nc" id="L60">	}</span>
 
@@ -195,7 +195,7 @@ public class FiliadoForm {
 	private void setCorFaixaItens(List&lt;CorFaixa&gt; cores) {
 <span class="nc bnc" id="L196" title="All 2 branches missed.">		for (CorFaixa cor : cores) {</span>
 <span class="nc" id="L197">			filiadoPanel.getCorFaixa().addItem(cor);</span>
-		}
+<span class="nc" id="L198">		}</span>
 <span class="nc" id="L199">	}</span>
 
 	private Date getDataEntrega() {
@@ -212,7 +212,7 @@ public class FiliadoForm {
 <span class="nc" id="L212">		DefaultTableModel faixasModel = (DefaultTableModel) filiadoPanel</span>
 <span class="nc" id="L213">				.getFaixasTable().getModel();</span>
 <span class="nc" id="L214">		faixasModel.setDataVector(data, new String[] { &quot;Faixa&quot;,</span>
-<span class="nc" id="L215">				&quot;Data de Entrega&quot; });</span>
+				&quot;Data de Entrega&quot; });
 <span class="nc" id="L216">	}</span>
 
 	public Date getDataNascimento() {

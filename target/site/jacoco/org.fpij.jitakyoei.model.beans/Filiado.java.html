@@ -21,21 +21,21 @@ import java.util.List;
 	
 	public String toString(){
 <span class="fc" id="L23">		String filiado = &quot;Nome: &quot;+nome+</span>
-<span class="fc" id="L24">						&quot;\nRegistroCbj: &quot;+registroCbj+</span>
-<span class="fc" id="L25">						&quot;\nDataNasc: &quot;+dataNascimento+</span>
-<span class="fc" id="L26">						&quot;\nE-mail: &quot;+email+</span>
-<span class="fc" id="L27">						&quot;\nCPF: &quot;+cpf;</span>
+						&quot;\nRegistroCbj: &quot;+registroCbj+
+						&quot;\nDataNasc: &quot;+dataNascimento+
+						&quot;\nE-mail: &quot;+email+
+						&quot;\nCPF: &quot;+cpf;
 <span class="fc" id="L28">		return filiado;</span>
 	}
 	
 	@Override
 	public boolean equals(Object obj) {
-<span class="pc bpc" id="L33" title="1 of 2 branches missed.">		if(obj instanceof Filiado){</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">		if(obj instanceof Filiado){</span>
 <span class="fc" id="L34">			Filiado other = (Filiado) obj;</span>
 <span class="fc bfc" id="L35" title="All 2 branches covered.">			return 	id == other.id &amp;&amp;</span>
 <span class="pc bpc" id="L36" title="1 of 2 branches missed.">					nome.equals(other.nome);</span>
 		}
-<span class="nc" id="L38">		return false;</span>
+<span class="fc" id="L38">		return false;</span>
 	}
 	
 	@Override

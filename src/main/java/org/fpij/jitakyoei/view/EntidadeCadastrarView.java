@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import org.fpij.jitakyoei.facade.AppFacade;
 import org.fpij.jitakyoei.view.forms.EntidadeForm;
 import org.fpij.jitakyoei.view.gui.EntidadeCadastrarPanel;
+import org.fpij.jitakyoei.model.validator.EntidadeValidator;
 
 public class EntidadeCadastrarView implements ViewComponent {
 
@@ -16,8 +17,8 @@ public class EntidadeCadastrarView implements ViewComponent {
 	private AppFacade facade;
 	private EntidadeForm entidadeForm;
 	private MainAppView parent;
-	
-	
+
+
 	public EntidadeCadastrarView(MainAppView parent) {
 		this.parent = parent;
 		gui = new EntidadeCadastrarPanel();
@@ -45,10 +46,18 @@ public class EntidadeCadastrarView implements ViewComponent {
 	public class CadastrarActionHandler implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+
+			EntidadeValidator entityValidator = new EntidadeValidator();
 			try {
-				facade.createEntidade(entidadeForm.getEntidade());
-				JOptionPane.showMessageDialog(gui, "Entidade cadastrada com sucesso!");
-				parent.removeTabPanel(gui);
+				if(entityValidator.validate(entidadeForm.getEntidade())){
+					facade.createEntidade(entidadeForm.getEntidade());
+					JOptionPane.showMessageDialog(gui, "Entidade cadastrada com sucesso!");
+					parent.removeTabPanel(gui);
+				}else{
+					JOptionPane.showMessageDialog(gui, "Erro - Preencha todos os dados de cadastro da entidade");
+
+				}
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}		

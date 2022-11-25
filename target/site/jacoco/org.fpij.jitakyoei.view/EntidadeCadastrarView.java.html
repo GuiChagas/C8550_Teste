@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import org.fpij.jitakyoei.facade.AppFacade;
 import org.fpij.jitakyoei.view.forms.EntidadeForm;
 import org.fpij.jitakyoei.view.gui.EntidadeCadastrarPanel;
+import org.fpij.jitakyoei.model.validator.EntidadeValidator;
 
 public class EntidadeCadastrarView implements ViewComponent {
 
@@ -16,43 +17,51 @@ public class EntidadeCadastrarView implements ViewComponent {
 	private AppFacade facade;
 	private EntidadeForm entidadeForm;
 	private MainAppView parent;
-	
-	
-<span class="nc" id="L21">	public EntidadeCadastrarView(MainAppView parent) {</span>
-<span class="nc" id="L22">		this.parent = parent;</span>
-<span class="nc" id="L23">		gui = new EntidadeCadastrarPanel();</span>
-<span class="nc" id="L24">		gui.getCancelar().addActionListener(new CancelarActionHandler());</span>
-<span class="nc" id="L25">		gui.getCadastrarEntidade().addActionListener(new CadastrarActionHandler());</span>
-<span class="nc" id="L26">		entidadeForm = new EntidadeForm(gui.getEntidadePanel());</span>
-<span class="nc" id="L27">		gui.setVisible(true);</span>
-<span class="nc" id="L28">	}</span>
+
+
+<span class="nc" id="L22">	public EntidadeCadastrarView(MainAppView parent) {</span>
+<span class="nc" id="L23">		this.parent = parent;</span>
+<span class="nc" id="L24">		gui = new EntidadeCadastrarPanel();</span>
+<span class="nc" id="L25">		gui.getCancelar().addActionListener(new CancelarActionHandler());</span>
+<span class="nc" id="L26">		gui.getCadastrarEntidade().addActionListener(new CadastrarActionHandler());</span>
+<span class="nc" id="L27">		entidadeForm = new EntidadeForm(gui.getEntidadePanel());</span>
+<span class="nc" id="L28">		gui.setVisible(true);</span>
+<span class="nc" id="L29">	}</span>
 
 	@Override
 	public JPanel getGui() {
-<span class="nc" id="L32">		return gui;</span>
+<span class="nc" id="L33">		return gui;</span>
 	}
 
 	@Override
 	public void registerFacade(AppFacade fac) {
-<span class="nc" id="L37">		this.facade = fac;</span>
-<span class="nc" id="L38">	}</span>
+<span class="nc" id="L38">		this.facade = fac;</span>
+<span class="nc" id="L39">	}</span>
 	
 	/**
 	 * Classe interna responsável por responder aos cliques no botão &quot;Cadastrar&quot;.
 	 * 
 	 * @author Aécio
 	 */
-<span class="nc" id="L45">	public class CadastrarActionHandler implements ActionListener {</span>
+<span class="nc" id="L46">	public class CadastrarActionHandler implements ActionListener {</span>
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+
+<span class="nc" id="L50">			EntidadeValidator entityValidator = new EntidadeValidator();</span>
 			try {
-<span class="nc" id="L49">				facade.createEntidade(entidadeForm.getEntidade());</span>
-<span class="nc" id="L50">				JOptionPane.showMessageDialog(gui, &quot;Entidade cadastrada com sucesso!&quot;);</span>
-<span class="nc" id="L51">				parent.removeTabPanel(gui);</span>
-<span class="nc" id="L52">			} catch (Exception e) {</span>
-<span class="nc" id="L53">				e.printStackTrace();</span>
-			}		
-<span class="nc" id="L55">		}</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">				if(entityValidator.validate(entidadeForm.getEntidade())){</span>
+<span class="nc" id="L53">					facade.createEntidade(entidadeForm.getEntidade());</span>
+<span class="nc" id="L54">					JOptionPane.showMessageDialog(gui, &quot;Entidade cadastrada com sucesso!&quot;);</span>
+<span class="nc" id="L55">					parent.removeTabPanel(gui);</span>
+				}else{
+<span class="nc" id="L57">					JOptionPane.showMessageDialog(gui, &quot;Erro - Preencha todos os dados de cadastro da entidade&quot;);</span>
+
+				}
+
+<span class="nc" id="L61">			} catch (Exception e) {</span>
+<span class="nc" id="L62">				e.printStackTrace();</span>
+<span class="nc" id="L63">			}		</span>
+<span class="nc" id="L64">		}</span>
 	}
 	
 	/**
@@ -60,11 +69,11 @@ public class EntidadeCadastrarView implements ViewComponent {
 	 * 
 	 * @author Aécio
 	 */
-<span class="nc" id="L63">	public class CancelarActionHandler implements ActionListener {</span>
+<span class="nc" id="L72">	public class CancelarActionHandler implements ActionListener {</span>
 		@Override
 		public void actionPerformed(ActionEvent e) {
-<span class="nc" id="L66">			parent.removeTabPanel(gui);</span>
-<span class="nc" id="L67">		}</span>
+<span class="nc" id="L75">			parent.removeTabPanel(gui);</span>
+<span class="nc" id="L76">		}</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

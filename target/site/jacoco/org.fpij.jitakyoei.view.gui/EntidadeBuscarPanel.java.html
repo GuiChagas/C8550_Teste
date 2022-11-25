@@ -54,8 +54,8 @@ public class EntidadeBuscarPanel extends JPanel {
 		//======== this ========
 <span class="nc" id="L55">		setName(&quot;this&quot;);</span>
 <span class="nc" id="L56">		setLayout(new FormLayout(</span>
-<span class="nc" id="L57">			&quot;25dlu, $lcgap, default:grow&quot;,</span>
-<span class="nc" id="L58">			&quot;3*(default, $lgap), default&quot;));</span>
+			&quot;25dlu, $lcgap, default:grow&quot;,
+			&quot;3*(default, $lgap), default&quot;));
 
 		//---- label1 ----
 <span class="nc" id="L61">		label1.setText(&quot;Busca de Entidade:&quot;);</span>
@@ -83,10 +83,10 @@ public class EntidadeBuscarPanel extends JPanel {
 
 			//---- tblEntidades ----
 <span class="nc" id="L85">			tblEntidades.setModel(new DefaultTableModel(</span>
-<span class="nc" id="L86">				new Object[][] {</span>
+				new Object[][] {
 				},
-<span class="nc" id="L88">				new String[] {</span>
-<span class="nc" id="L89">					&quot;Nome&quot;, &quot;CNPJ&quot;, &quot;Telefone 1&quot;, &quot;Telefone 2&quot;</span>
+				new String[] {
+					&quot;Nome&quot;, &quot;CNPJ&quot;, &quot;Telefone 1&quot;, &quot;Telefone 2&quot;
 				}
 			));
 <span class="nc" id="L92">			tblEntidades.setCellSelectionEnabled(true);</span>

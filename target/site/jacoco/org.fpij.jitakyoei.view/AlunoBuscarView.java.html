@@ -65,7 +65,7 @@ public class AlunoBuscarView implements ViewComponent {
 <span class="nc" id="L65">			}catch (Exception e) {</span>
 <span class="nc" id="L66">				JOptionPane.showMessageDialog(gui,&quot;Nº de Registro inválido! No resgistro só pode haver números.&quot;);</span>
 <span class="nc" id="L67">				return;</span>
-			}
+<span class="nc" id="L68">			}</span>
 		}
 <span class="nc" id="L70">		Aluno aluno = new Aluno();</span>
 <span class="nc" id="L71">		aluno.setFiliado(filiado);</span>
@@ -77,45 +77,49 @@ public class AlunoBuscarView implements ViewComponent {
 <span class="nc" id="L77">		Object[][] data = new Object[alunoList.size()][4];</span>
 <span class="nc bnc" id="L78" title="All 2 branches missed.">		for (int i = 0; i &lt; alunoList.size(); i++) {</span>
 			try{
-<span class="nc" id="L80">				data[i][0] = alunoList.get(i).getFiliado().getId();</span>
-<span class="nc" id="L81">				data[i][1] = alunoList.get(i).getFiliado().getNome();</span>
-<span class="nc" id="L82">				data[i][2] = alunoList.get(i).getProfessor().getFiliado().getNome();</span>
-<span class="nc" id="L83">				data[i][3] = alunoList.get(i).getEntidade().getNome();</span>
-<span class="nc" id="L84">			}catch (Exception e) {</span>
-<span class="nc" id="L85">				e.printStackTrace();</span>
-			}
-		}
-<span class="nc" id="L88">		alunoTableModel.setDataVector(data, new String[] { </span>
-<span class="nc" id="L89">				&quot;Resistro&quot;, &quot;Nome&quot;, &quot;Professor&quot;, &quot;Entidade&quot; });</span>
-<span class="nc" id="L90">	}</span>
 
-<span class="nc" id="L92">	public class BuscarActionHandler implements ActionListener {</span>
+<span class="nc" id="L81">				System.out.println(&quot;ERRO BUSCAR VIEW -----------&quot;);</span>
+<span class="nc" id="L82">				System.out.println(alunoList.get(i).getProfessor().getFiliado().getNome());</span>
+
+<span class="nc" id="L84">				data[i][0] = alunoList.get(i).getFiliado().getId();</span>
+<span class="nc" id="L85">				data[i][1] = alunoList.get(i).getFiliado().getNome();</span>
+<span class="nc" id="L86">				data[i][2] =  alunoList.get(i).getProfessor().getFiliado().getNome();</span>
+<span class="nc" id="L87">				data[i][3] = alunoList.get(i).getEntidade().getNome();</span>
+<span class="nc" id="L88">			}catch (Exception e) {</span>
+<span class="nc" id="L89">				e.printStackTrace();</span>
+<span class="nc" id="L90">			}</span>
+		}
+<span class="nc" id="L92">		alunoTableModel.setDataVector(data, new String[] { </span>
+				&quot;Registro&quot;, &quot;Nome&quot;, &quot;Professor&quot;, &quot;Entidade&quot; });
+<span class="nc" id="L94">	}</span>
+
+<span class="nc" id="L96">	public class BuscarActionHandler implements ActionListener {</span>
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-<span class="nc" id="L95">			buscar();</span>
-<span class="nc" id="L96">		}</span>
+<span class="nc" id="L99">			buscar();</span>
+<span class="nc" id="L100">		}</span>
 	}
 
 	public List&lt;Aluno&gt; getAlunoList() {
-<span class="nc" id="L100">		return alunoList;</span>
+<span class="nc" id="L104">		return alunoList;</span>
 	}
 
 
 	public Aluno getAluno() {
-<span class="nc" id="L105">		return aluno;</span>
+<span class="nc" id="L109">		return aluno;</span>
 	}
 
 	public void setAluno(Aluno aluno) {
-<span class="nc" id="L109">		this.aluno = aluno;</span>
-<span class="nc" id="L110">	}</span>
+<span class="nc" id="L113">		this.aluno = aluno;</span>
+<span class="nc" id="L114">	}</span>
 
 	public Aluno getSelectedAluno() {
-<span class="nc" id="L113">		return selectedAluno;</span>
+<span class="nc" id="L117">		return selectedAluno;</span>
 	}
 
 	public void setSelectedAluno(Aluno selectedAluno) {
-<span class="nc" id="L117">		this.selectedAluno = selectedAluno;</span>
-<span class="nc" id="L118">	}</span>
+<span class="nc" id="L121">		this.selectedAluno = selectedAluno;</span>
+<span class="nc" id="L122">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -92,7 +92,7 @@ public class MainAppView implements AppView {
 			}
 <span class="nc" id="L93">		} catch (Exception e) {</span>
 <span class="nc" id="L94">			e.printStackTrace();</span>
-		}
+<span class="nc" id="L95">		}</span>
 <span class="nc" id="L96">	}</span>
 
 	@Action
@@ -114,11 +114,11 @@ public class MainAppView implements AppView {
 	@Action
 	public void cadastrarProfessorMenuItem() {
 <span class="nc" id="L116">		int i = JOptionPane.showConfirmDialog(frame,</span>
-<span class="nc" id="L117">				&quot;O professor já tem registro como aluno na FPIJ?&quot;,</span>
-<span class="nc" id="L118">				&quot;Confirmação&quot;, JOptionPane.YES_NO_OPTION);</span>
-
+				&quot;O professor já tem registro como aluno na FPIJ?&quot;,
+				&quot;Confirmação&quot;, JOptionPane.YES_NO_OPTION);
+<span class="nc" id="L119">		JDialog dialog = new JDialog(frame);</span>
 <span class="nc bnc" id="L120" title="All 2 branches missed.">		if (i == JOptionPane.YES_OPTION) {</span>
-<span class="nc" id="L121">			JDialog dialog = new JDialog(frame);</span>
+
 <span class="nc" id="L122">			ProfessorBuscarView view = new ProfessorBuscarView();</span>
 <span class="nc" id="L123">			view.registerFacade(facade);</span>
 <span class="nc" id="L124">			dialog.getContentPane().add(view.getGui());</span>
@@ -126,7 +126,7 @@ public class MainAppView implements AppView {
 <span class="nc" id="L126">			dialog.setSize(600, 400);</span>
 <span class="nc" id="L127">			dialog.setLocationRelativeTo(frame);</span>
 <span class="nc" id="L128">			dialog.setVisible(true);</span>
-<span class="nc" id="L129">		} else {</span>
+<span class="nc bnc" id="L129" title="All 2 branches missed.">		}else if(i == JOptionPane.NO_OPTION){</span>
 <span class="nc" id="L130">			displayTabPanel(new ProfessorCadastrarView(this), &quot;Cadastrar Professor&quot;);</span>
 		}
 <span class="nc" id="L132">	}</span>
@@ -155,7 +155,7 @@ public class MainAppView implements AppView {
 			}
 <span class="nc" id="L156">		} catch (Exception e) {</span>
 <span class="nc" id="L157">			e.printStackTrace();</span>
-		}
+<span class="nc" id="L158">		}</span>
 <span class="nc" id="L159">	}</span>
 
 	@Action
@@ -209,7 +209,7 @@ public class MainAppView implements AppView {
 
 	@Action
 	public void buscarEntidadeMenuItem() {
-<span class="nc" id="L212">		displayTabPanel(new EntidadeBuscarView(), &quot;Busca de Entidade&quot;);</span>
+<span class="nc" id="L212">		displayTabPanel(new EntidadeBuscarView(), &quot;Buscar Entidade&quot;);</span>
 <span class="nc" id="L213">	}</span>
 
 	@Action
